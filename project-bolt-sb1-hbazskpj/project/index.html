@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Revestir Mogi - Acabamentos de Alto Padrão</title>
+    <meta name="description" content="Showroom completo de acabamentos, louças, metais e revestimentos de alto padrão em Mogi das Cruzes">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/brands.css">
+    <link rel="stylesheet" href="css/testimonials.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/whatsapp.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    }
+
+    /* Header Styles - Based on the contact page image */
+    .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+    }
+
+    .header.scrolled {
+    background-color: #252525;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    }
+
+    .nav__logo {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    }
+
+    .nav__menu {
+    display: flex;
+    align-items: center;
+    }
+
+    .nav__list {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+    }
+
+    .nav__link {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.3s ease;
+    }
+
+    .nav__link:hover,
+    .nav__link.active-link {
+    color: #ff9500;
+    }
+
+    .nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff9500;
+    transition: width 0.3s ease;
+    }
+
+    .nav__link:hover::after,
+    .nav__link.active-link::after {
+    width: 100%;
+    }
+
+    .nav__toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    }
+
+    .nav__toggle::after {
+        color: white;
+        background-color: transparent;
+    }
+
+    .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    }
+
+    .hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    }
+
+
+    .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    }
+
+    .section-header {
+    text-align: center;
+    margin-bottom: 80px;
+    }
+
+    .section-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    }
+
+    .section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+    }
+
+
+
+    .about-text h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 500;
+    }
+
+    .about-text p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    }
+
+    .about-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+
+    .about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    }
+
+    .about-image:hover img {
+    transform: scale(1.05);
+    }
+
+
+
+    /* Footer Styles - Based on the contact page image */
+    .footer {
+    background: #2c2c2c;
+    color: white;
+    padding: 60px 0 20px;
+    }
+
+    .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-bottom: 40px;
+    }
+
+    .footer-brand h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ff9500;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    }
+
+    .footer-navigation {
+    display: flex;
+    justify-content: center;
+    }
+
+    .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    }
+
+    .footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+    color: #ff9500;
+    }
+
+    .footer-contact {
+    text-align: right;
+    }
+
+    .footer-contact-info {
+    margin-bottom: 20px;
+    }
+
+    .footer-contact-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    }
+
+    .social-links {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    }
+
+    .social-links a {
+    width: 40px;
+    height: 40px;
+    background: #ff9500;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+    background: #ff7700;
+    transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    }
+
+    /* WhatsApp Float Button */
+    .whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    }
+
+    .whatsapp-float a {
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    }
+
+    .whatsapp-float a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+    .nav__list {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    padding: 2rem 0;
+    gap: 1.5rem;
+    }
+
+    .nav__list.active {
+    left: 0;
+    }
+
+    .nav__toggle {
+    display: block;
+    }
+
+    .hero h1 {
+    font-size: 2.5rem;
+    }
+
+    .hero p {
+    font-size: 1.1rem;
+    }
+
+    .about-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    }
+
+    .section-title {
+    font-size: 2rem;
+    }
+
+    .content-section {
+    padding: 60px 0;
+    }
+
+    .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+    }
+
+    .footer-contact {
+    text-align: center;
+    }
+
+    .social-links {
+    justify-content: center;
+    }
+
+    .footer-links {
+    justify-content: center;
+    }
+
+    .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    }
+
+    .values-grid,
+    .team-grid {
+    grid-template-columns: 1fr;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .hero h1 {
+    font-size: 2rem;
+    }
+
+    .stats-grid {
+    grid-template-columns: 1fr;
+    }
+
+    .stat-number {
+    font-size: 2.5rem;
+    }
+
+    .nav {
+    padding: 0 1rem;
+    }
+
+    .container {
+    padding: 0 1rem;
+    }
+    }
+    </style>
+
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <nav class="nav">
+        <div class="nav__brand">
+            <a href="index.html" class="nav__logo">Espaço Revestir</a>
+        </div>
+
+        <div class="nav__menu">
+            <ul class="nav__list" id="nav-menu">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link active-link">HOME</a>
+                </li>
+                <li class="nav__item">
+                    <a href="quem-somos.html" class="nav__link">QUEM SOMOS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="marcas.html" class="nav__link">MARCAS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="produtos.html" class="nav__link">PRODUTOS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="projetos.html" class="nav__link">PROJETOS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="noticias.html" class="nav__link">NOTÍCIAS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contato.html" class="nav__link">CONTATO</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+
+<!-- Hero Section -->
+<section class="home section" id="home">
+    <div class="home__image">
+        <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Ambiente sofisticado com móveis modernos">
+    </div>
+
+    <div class="home__container container">
+        <div class="home__content">
+            <div class="home__data fade-in">
+                <p class="home__title">
+                    Espaço<br>
+                    Revestir
+                </p>
+                <p class="home__description">
+                    Transformamos ambientes com acabamentos de alto padrão. Curadoria exclusiva de marcas premium para projetos que pedem sofisticação.
+                </p>
+                <div class="home__buttons">
+                    <a href="produtos.html" class="button button--primary">NOSSOS PRODUTOS</a>
+                    <a href="contato.html" class="button button--outline">FALE CONOSCO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Down Arrow -->
+    <div class="scroll-down" onclick="scrollToNext()">
+        <i class="ri-arrow-down-line"></i>
+    </div>
+</section>
+
+<!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre a Espaço Revestir</h2>
+                    <p class="about-description">
+                        Com anos de experiência no segmento de acabamentos de alto padrão,
+                        a Espaço Revestir Mogi se destaca pelo atendimento personalizado,
+                        curadoria de marcas premium e um ambiente pensado para encantar tanto
+                        o cliente final quanto o profissional de arquitetura.
+                    </p>
+                    <p class="about-description">
+                        Nossa missão é oferecer mais que produtos: entregamos soluções com
+                        estética, durabilidade e sofisticação.
+                    </p>
+                    <a href="quem-somos.html" class="btn btn-outline">CONHEÇA NOSSA HISTÓRIA</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Showroom Espaço Revestir">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">CONHEÇA NOSSOS AMBIENTES</h2>
+                <p class="section-subtitle">
+                    Inspire-se com projetos reais que passaram pela Espaço Revestir.<br>
+                    Ambientes sofisticados, modernos, rústicos ou clássicos — todos<br>
+                    com produtos selecionados por quem entende de bom gosto.
+                </p>
+            </div>
+
+            <div class="projects-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="projectsTrack">
+                        <div class="project-slide active">
+                            <div class="project-image">
+                                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop" alt="Banheiro Luxuoso">
+                            </div>
+                            <div class="project-info">
+                                <h3>Banheiro Luxuoso</h3>
+                                <p>Spa em casa com mármores e pedras naturais. Revestimentos impermeáveis que proporcionam sofisticação e durabilidade para seus momentos de relaxamento.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-slide">
+                            <div class="project-image">
+                                <img src="https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop" alt="Sala Moderna">
+                            </div>
+                            <div class="project-info">
+                                <h3>Sala Moderna</h3>
+                                <p>Ambiente contemporâneo com porcelanatos de grande formato. Design clean e sofisticado que valoriza cada detalhe do projeto arquitetônico.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-slide">
+                            <div class="project-image">
+                                <img src="https://images.pexels.com/photos/1571457/pexels-photo-1571457.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop" alt="Cozinha Gourmet">
+                            </div>
+                            <div class="project-info">
+                                <h3>Cozinha Gourmet</h3>
+                                <p>Espaço funcional e elegante com revestimentos de alta performance. Materiais que combinam beleza e praticidade para o dia a dia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" id="projectsPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next" id="projectsNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Brands Section -->
+<section class="brands">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">PRINCIPAIS MARCAS</h2>
+            <p class="section-subtitle">
+                Trabalhamos com as principais marcas do mercado, oferecendo<br>
+                acabamentos que aliam design, tecnologia e excelência.
+            </p>
+        </div>
+
+        <div class="brands-carousel">
+            <div class="brands-container">
+                <div class="brands-track" id="brandsTrack">
+                    <!-- Slide 1 -->
+                    <div class="brands-slide">
+                        <div class="brand-item">DECA</div>
+                        <div class="brand-item">PORTINARI</div>
+                        <div class="brand-item">CASTELATTO</div>
+                        <div class="brand-item">CEUSA</div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="brands-slide">
+                        <div class="brand-item">DOCOL</div>
+                        <div class="brand-item">ROCA</div>
+                        <div class="brand-item">HANSGROHE</div>
+                        <div class="brand-item">DECORTILES</div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="brands-slide">
+                        <div class="brand-item">ELIANE</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="brands-controls">
+                <button class="carousel-btn prev" id="brandsPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" id="brandsNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="carousel-indicators" id="brandsIndicators">
+                <div class="indicator active" data-slide="0"></div>
+                <div class="indicator" data-slide="1"></div>
+                <div class="indicator" data-slide="2"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">DEPOIMENTOS</h2>
+            <p class="section-subtitle">
+                Veja o que arquitetos e clientes têm a dizer sobre a experiência<br>
+                na Espaço Revestir Mogi. A confiança e o reconhecimento são reflexos<br>
+                do nosso compromisso com a excelência.
+            </p>
+        </div>
+
+        <div class="testimonials-carousel">
+            <button class="carousel-nav prev" id="prevBtn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+            </button>
+
+            <div class="testimonials-track" id="testimonialsTrack">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-content">
+                        <div class="testimonial-image">
+                            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Fábio Cardoso">
+                        </div>
+                        <div class="testimonial-text">
+                            <blockquote>
+                                "Um grande parceiro pra todos os projetos. Conheço a Conceito desde o seu início, devo ter sido um dos primeiros clientes. Ainda com nenhuma estrutura mas com muito comprometimento e dedicação fora do normal do mercado."
+                            </blockquote>
+                            <cite>Fábio Cardoso - Engenheiro Civil e Construtor</cite>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-image">
+                            <img src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Ana Silva">
+                        </div>
+                        <div class="testimonial-text">
+                            <blockquote>
+                                "Atendimento excepcional e produtos de altíssima qualidade. A equipe da Espaço Revestir nos ajudou a transformar nossa casa em um verdadeiro lar, com acabamentos que superaram nossas expectativas."
+                            </blockquote>
+                            <cite>Ana Silva - Arquiteta</cite>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-image">
+                            <img src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Carlos Mendes">
+                        </div>
+                        <div class="testimonial-text">
+                            <blockquote>
+                                "Parceria sólida há mais de 5 anos. A curadoria de produtos é impecável e o suporte técnico é fundamental para o sucesso dos nossos projetos. Recomendo sem hesitar."
+                            </blockquote>
+                            <cite>Carlos Mendes - Designer de Interiores</cite>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-nav next" id="nextBtn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
+            </button>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Conheça nosso</h2>
+                <h3 class="blog-title">Blog</h3>
+                <div class="blog-subtitle">Espaço Revestir</div>
+            </div>
+
+            <div class="blog-carousel">
+                <div class="blog-track" id="blogTrack">
+                    <article class="blog-slide active">
+                        <div class="blog-image">
+                            <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Quiet luxury">
+                        </div>
+                        <div class="blog-content">
+                            <h4>Quiet luxury: como usar esse estilo na decoração de ambientes?</h4>
+                        </div>
+                    </article>
+
+                    <article class="blog-slide">
+                        <div class="blog-image">
+                            <img src="https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Acabamentos de porcelanatos">
+                        </div>
+                        <div class="blog-content">
+                            <h4>Tudo sobre os acabamentos de porcelanatos</h4>
+                        </div>
+                    </article>
+
+                    <article class="blog-slide">
+                        <div class="blog-image">
+                            <img src="https://images.pexels.com/photos/1571457/pexels-photo-1571457.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Pisos orgânicos">
+                        </div>
+                        <div class="blog-content">
+                            <h4>Pisos orgânicos: saiba detalhes dessa tendência nos porcelanatos</h4>
+                        </div>
+                    </article>
+
+                    <article class="blog-slide">
+                        <div class="blog-image">
+                            <img src="https://images.pexels.com/photos/1571461/pexels-photo-1571461.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Tendências 2024">
+                        </div>
+                        <div class="blog-content">
+                            <h4>Tendências em revestimentos para 2024: o que esperar</h4>
+                        </div>
+                    </article>
+
+                    <article class="blog-slide">
+                        <div class="blog-image">
+                            <img src="https://images.pexels.com/photos/1571462/pexels-photo-1571462.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Manutenção">
+                        </div>
+                        <div class="blog-content">
+                            <h4>Como fazer a manutenção correta dos seus revestimentos</h4>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="blog-controls">
+                    <button class="carousel-btn prev" id="blogPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next" id="blogNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="blog-actions">
+                <a href="noticias.html" class="btn btn-primary">VER MAIS NOTÍCIAS</a>
+                <div class="instagram-follow">
+                    <p>Siga-nos no Instagram para mais inspirações</p>
+                    <a href="https://instagram.com/espacorevestirmogi" target="_blank" class="instagram-btn">
+                        <i class="fab fa-instagram"></i>
+                        @espacorevestirmogi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>ESPAÇO<br>REVESTIR</h3>
+            </div>
+
+            <div class="footer-navigation">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="quem-somos.html">Quem Somos</a>
+                    <a href="marcas.html">Marcas</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="projetos.html">Projetos</a>
+                    <a href="noticias.html">Notícias</a>
+                    <a href="contato.html">Contato</a>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <div class="footer-contact-info">
+                    <p>(11) 4728-0000</p>
+                    <p>contato@espacorevestir.com.br</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 Espaço Revestir. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5511947280000" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/header.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/brands.js"></script>
+    <script src="js/testimonials.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="js/main.js"></script>
+
+<script>
+    // Mobile Menu Toggle - Adaptado para o HTML fornecido
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav__link').forEach(link => {
+    link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+    target.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+    });
+    }
+    });
+    });
+
+    // Fade in animation on scroll
+    const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+    entry.target.classList.add('fade-in');
+    }
+    });
+    }, observerOptions);
+
+    // Observe all content sections
+    document.querySelectorAll('.content-section').forEach(section => {
+    observer.observe(section);
+    });
+
+    // Counter animation for stats
+    function animateCounter(element, target) {
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+    const isPercentage = element.textContent.includes('%');
+    const hasPlus = element.textContent.includes('+');
+
+    const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+    current = target;
+    clearInterval(timer);
+    }
+
+    if (hasPlus) {
+    element.textContent = Math.floor(current) + '+';
+    } else if (isPercentage) {
+    element.textContent = Math.floor(current) + '%';
+    } else {
+    element.textContent = Math.floor(current);
+    }
+    }, 16);
+    }
+
+    // Animate stats when they come into view
+    const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+    const statNumbers = entry.target.querySelectorAll('.stat-number');
+    statNumbers.forEach(stat => {
+    const originalText = stat.textContent;
+    const target = parseInt(originalText.replace(/\D/g, ''));
+    if (target > 0) {
+    animateCounter(stat, target);
+    }
+    });
+    statsObserver.unobserve(entry.target);
+    }
+    });
+    }, {
+    threshold: 0.3
+    });
+
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+    statsObserver.observe(statsSection);
+    }
+
+    // Header background and scroll effects
+    window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    const scrollY = window.scrollY;
+
+    if (scrollY > 100) {
+    header.classList.add('scrolled');
+    } else {
+    header.classList.remove('scrolled');
+    }
+    });
+
+    // Parallax effect for hero section
+    window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+
+    if (hero && heroContent && scrolled < hero.offsetHeight) {
+    heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+    heroContent.style.opacity = 1 - (scrolled / hero.offsetHeight);
+    }
+    });
+
+    // Lazy loading for images
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+    const img = entry.target;
+    img.src = img.dataset.src;
+    img.classList.remove('lazy');
+    imageObserver.unobserve(img);
+    }
+    });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+    imageObserver.observe(img);
+    });
+
+    // Hover effects for cards
+    document.querySelectorAll('.value-card, .team-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+    this.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+
+    card.addEventListener('mouseleave', function() {
+    this.style.transform = 'translateY(0) scale(1)';
+    });
+    });
+
+    // Loading animation for page
+    window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+
+    // Animate hero content
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+    heroContent.style.opacity = '1';
+    heroContent.style.transform = 'translateY(0)';
+    }
+    });
+
+    // Smooth scroll to top functionality
+    function scrollToTop() {
+    window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+    });
+    }
+
+    // Show/hide scroll to top button
+    let scrollToTopBtn = null;
+
+    function createScrollToTopButton() {
+    scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    scrollToTopBtn.className = 'scroll-to-top';
+    scrollToTopBtn.style.cssText = `
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #ff9500, #ff7700);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 5px 20px rgba(255, 149, 0, 0.3);
+    `;
+
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+    document.body.appendChild(scrollToTopBtn);
+    }
+
+    window.addEventListener('scroll', () => {
+    if (!scrollToTopBtn) {
+    createScrollToTopButton();
+    }
+
+    if (window.scrollY > 300) {
+    scrollToTopBtn.style.opacity = '1';
+    scrollToTopBtn.style.transform = 'scale(1)';
+    } else {
+    scrollToTopBtn.style.opacity = '0';
+    scrollToTopBtn.style.transform = 'scale(0.8)';
+    }
+    });
+
+    // Form validation and interactions (if forms are added later)
+    function validateForm(form) {
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    let isValid = true;
+
+    inputs.forEach(input => {
+    if (!input.value.trim()) {
+    input.classList.add('error');
+    isValid = false;
+    } else {
+    input.classList.remove('error');
+    }
+    });
+
+    return isValid;
+    }
+
+    // WhatsApp button animation
+    const whatsappBtn = document.querySelector('.whatsapp-float a');
+    if (whatsappBtn) {
+    setInterval(() => {
+    whatsappBtn.style.animation = 'pulse 2s infinite';
+    }, 5000);
+    }
+
+    // Add pulse animation to CSS dynamically
+    const style = document.createElement('style');
+    style.textContent = `
+    @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+    }
+
+    .scroll-to-top:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 8px 30px rgba(255, 149, 0, 0.4) !important;
+    }
+
+    .loaded .hero-content {
+    transition: all 1s ease;
+    }
+
+    img.lazy {
+    opacity: 0;
+    transition: opacity 0.3s;
+    }
+
+    .nav__list.active {
+    left: 0 !important;
+    }
+
+    .error {
+    border: 2px solid #ff6b6b !important;
+    background-color: rgba(255, 107, 107, 0.1) !important;
+    }
+    `;
+    document.head.appendChild(style);
+
+    // Keyboard navigation support
+    document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+    navMenu.classList.remove('active');
+    }
+    });
+
+    // Focus management for mobile menu
+    navToggle.addEventListener('click', () => {
+    if (navMenu.classList.contains('active')) {
+    // Focus first menu item when menu opens
+    setTimeout(() => {
+    const firstLink = navMenu.querySelector('.nav__link');
+    if (firstLink) firstLink.focus();
+    }, 100);
+    }
+    });
+
+    // Performance optimization: Throttle scroll events
+    function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+    func.apply(context, args);
+    inThrottle = true;
+    setTimeout(() => inThrottle = false, limit);
+    }
+    }
+    }
+
+    // Apply throttling to scroll events
+    const throttledScrollHandler = throttle(() => {
+    const header = document.querySelector('.header');
+    const scrollY = window.scrollY;
+
+    if (scrollY > 100) {
+    header.classList.add('scrolled');
+    } else {
+    header.classList.remove('scrolled');
+    }
+
+    // Parallax effect
+    const heroContent = document.querySelector('.hero-content');
+    const hero = document.querySelector('.hero');
+
+    if (hero && heroContent && scrollY < hero.offsetHeight) {
+    heroContent.style.transform = `translateY(${scrollY * 0.5}px)`;
+    }
+    }, 16);
+
+    window.addEventListener('scroll', throttledScrollHandler);
+
+    // Console log for debugging
+    console.log('Espaço Revestir - JavaScript loaded successfully!');
+
+    // Initialize everything when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded');
+
+    // Add any initialization code here
+    const allSections = document.querySelectorAll('.content-section');
+    console.log(`Found ${allSections.length} content sections for animation`);
+
+    // Preload critical images
+    const criticalImages = document.querySelectorAll('.hero img, .about-image img');
+    criticalImages.forEach(img => {
+    const imageUrl = img.src;
+    const preloadImg = new Image();
+    preloadImg.src = imageUrl;
+    });
+    });
+</script>
+
+</body>
+</html>

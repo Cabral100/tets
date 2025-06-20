@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Espaço Revestir Mogi</title>
+    <meta name="description" content="Entre em contato com a Espaço Revestir Mogi. Agende sua visita, tire suas dúvidas e solicite orçamentos">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/whatsapp.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/style_pages.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+<!-- Header -->
+<header class="header" id="header">
+    <nav class="nav container">
+        <div class="nav__brand">
+            <a href="index.html" class="nav__logo">Espaço Revestir</a>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link">HOME</a>
+                </li>
+                <li class="nav__item">
+                    <a href="quem-somos.html" class="nav__link">QUEM SOMOS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="marcas.html" class="nav__link">MARCAS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="produtos.html" class="nav__link">PRODUTOS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="projetos.html" class="nav__link">PROJETOS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="noticias.html" class="nav__link">NOTÍCIAS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contato.html" class="nav__link active-link">CONTATO</a>
+                </li>
+            </ul>
+
+            <div class="nav__close" id="nav-close">
+                <i class="ri-close-line"></i>
+            </div>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line"></i>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="contact-hero">
+    <div class="contact-hero-content">
+        <h1 class="contact-hero-title">Contato</h1>
+        <p class="contact-hero-subtitle">
+            Entre em contato conosco e descubra como podemos<br>
+            transformar seu projeto em realidade.
+        </p>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-main">
+    <div class="contact-container">
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+                <h2 class="contact-form-title">Agende sua Visita</h2>
+                <p class="contact-form-description">
+                    Preencha o formulário abaixo e nossa equipe entrará em contato para agendar
+                    um horário personalizado no nosso showroom.
+                </p>
+
+                <div class="form-message" id="form-message"></div>
+
+                <form class="contact-form" id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Nome *</label>
+                            <input type="text" class="form-input" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Telefone *</label>
+                            <input type="tel" class="form-input" name="telefone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">E-mail *</label>
+                        <input type="email" class="form-input" name="email" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Data Preferida</label>
+                            <input type="date" class="form-input" name="data">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Horário Preferido</label>
+                            <select class="form-select" name="horario">
+                                <option value="">Selecione</option>
+                                <option value="manha">Manhã (9h às 12h)</option>
+                                <option value="tarde">Tarde (14h às 17h)</option>
+                                <option value="noite">Noite (18h às 20h)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Tipo de Projeto</label>
+                        <select class="form-select" name="tipo_projeto">
+                            <option value="">Selecione</option>
+                            <option value="residencial">Residencial</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="reforma">Reforma</option>
+                            <option value="construcao">Construção Nova</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Mensagem</label>
+                        <textarea class="form-textarea" name="mensagem" placeholder="Conte-nos mais sobre seu projeto..."></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">Enviar Mensagem</button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info-section">
+                <h2 class="contact-info-title">Informações de Contato</h2>
+
+                <!-- Address -->
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info-content">
+                        <h3 class="contact-info-heading">Endereço</h3>
+                        <p class="contact-info-text">
+                            Rua das Flores, 123<br>
+                            Centro - Mogi das Cruzes/SP<br>
+                            CEP: 08710-000
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-info-content">
+                        <h3 class="contact-info-heading">Telefone</h3>
+                        <p class="contact-info-text">
+                            (11) 4728-0000<br>
+                            <a href="https://wa.me/5511947280000">(11) 94728-0000 (WhatsApp)</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info-content">
+                        <h3 class="contact-info-heading">E-mail</h3>
+                        <p class="contact-info-text">
+                            <a href="mailto:contato@espacorevestir.com.br">contato@espacorevestir.com.br</a><br>
+                            <a href="mailto:vendas@espacorevestir.com.br">vendas@espacorevestir.com.br</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Hours -->
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-info-content">
+                        <h3 class="contact-info-heading">Horário de Funcionamento</h3>
+                        <p class="contact-info-text">
+                            Segunda a Sexta: 8h às 18h<br>
+                            Sábado: 8h às 16h<br>
+                            Domingo: Fechado
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="contact-map-section">
+    <div class="contact-container">
+        <div class="contact-map-header">
+            <h2 class="contact-map-title">Nossa Localização</h2>
+            <p class="contact-map-subtitle">
+                Venha nos visitar e conheça nosso showroom completo<br>
+                com as melhores marcas de acabamentos.
+            </p>
+        </div>
+
+        <div class="contact-map-container">
+            <div class="contact-map-placeholder">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Mapa interativo será carregado aqui</h3>
+                <p>Rua das Flores, 123 - Centro, Mogi das Cruzes/SP</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>ESPAÇO<br>REVESTIR</h3>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="quem-somos.html">Quem Somos</a></li>
+                        <li><a href="marcas.html">Marcas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="projetos.html">Projetos</a></li>
+                        <li><a href="noticias.html">Notícias</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <p>(11) 4728-0000 •</p>
+                <p>contato@espacorevestir.com.br</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 Espaço Revestir. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<div class="whatsapp-float">
+    <a href="https://wa.me/5511947280000" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+
+
+<!-- External Scripts -->
+<script src="js/header.js"></script>
+<script src="js/script-pages.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

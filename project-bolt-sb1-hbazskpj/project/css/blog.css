@@ -1,0 +1,209 @@
+/* Blog Section */
+.blog {
+    padding: var(--spacing-5xl) 0;
+    background-color: var(--bg-secondary);
+}
+
+.blog-title {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-5xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.blog-subtitle {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.blog-carousel {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.blog-track {
+    display: flex;
+    gap: var(--spacing-xl);
+    transition: transform var(--transition-slow);
+    padding: var(--spacing-md) 0;
+}
+
+.blog-slide {
+    flex: 0 0 auto;
+    width: 350px;
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    transition: all var(--transition-medium);
+    cursor: pointer;
+}
+
+.blog-slide:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.blog-slide.active {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-heavy);
+}
+
+.blog-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-slow);
+}
+
+.blog-slide:hover .blog-image img {
+    transform: scale(1.1);
+}
+
+.blog-content {
+    padding: var(--spacing-lg);
+}
+
+.blog-content h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: var(--spacing-md);
+}
+
+.blog-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 var(--spacing-md);
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.blog-controls .carousel-btn {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
+    pointer-events: all;
+    font-size: var(--font-size-base);
+}
+
+.blog-controls .carousel-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+}
+
+.blog-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-2xl);
+}
+
+.instagram-follow {
+    text-align: center;
+}
+
+.instagram-follow p {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: var(--text-white);
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    transition: all var(--transition-medium);
+    text-decoration: none;
+}
+
+.instagram-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.instagram-btn i {
+    font-size: var(--font-size-lg);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .blog-slide {
+        width: 300px;
+    }
+    
+    .blog-track {
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .blog {
+        padding: var(--spacing-4xl) 0;
+    }
+    
+    .blog-title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .blog-slide {
+        width: 280px;
+    }
+    
+    .blog-track {
+        gap: var(--spacing-md);
+    }
+    
+    .blog-image {
+        height: 180px;
+    }
+    
+    .blog-content {
+        padding: var(--spacing-md);
+    }
+    
+    .blog-content h4 {
+        font-size: var(--font-size-base);
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-slide {
+        width: 250px;
+    }
+    
+    .blog-actions {
+        gap: var(--spacing-lg);
+    }
+    
+    .instagram-btn {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--font-size-sm);
+    }
+}

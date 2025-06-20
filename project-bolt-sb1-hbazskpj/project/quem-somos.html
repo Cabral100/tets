@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos - Espaço Revestir</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles - Based on the contact page image */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: transparent;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .header.scrolled {
+            background-color: #252525;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav__logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav__menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav__list {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav__link {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav__link:hover,
+        .nav__link.active-link {
+            color: #ff9500;
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ff9500;
+            transition: width 0.3s ease;
+        }
+
+        .nav__link:hover::after,
+        .nav__link.active-link::after {
+            width: 100%;
+        }
+
+        .nav__toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(255,149,0,0.1)),
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/><text x="600" y="300" text-anchor="middle" dominant-baseline="central" font-family="Arial" font-size="40" fill="%23999">Interior Design</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: orange;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 149, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 149, 0, 0.4);
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .content-section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .accent-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff9500, #ff7700);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #ff9500, #ff7700);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff9500, #ff7700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .value-card h4 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: #f8f9fa;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .team-image {
+            height: 300px;
+            background: linear-gradient(135deg, #ff9500, #ff7700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .team-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .team-info h4 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .team-info .role {
+            color: #ff9500;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .team-info p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Footer Styles - Based on the contact page image */
+        .footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ff9500;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+
+        .footer-navigation {
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff9500;
+        }
+
+        .footer-contact {
+            text-align: right;
+        }
+
+        .footer-contact-info {
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #ff9500;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #ff7700;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .whatsapp-float a {
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav__list {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.95);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            .nav__list.active {
+                left: 0;
+            }
+
+            .nav__toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 60px 0;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .footer-contact {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .values-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .nav {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+    <nav class="nav">
+        <div class="nav__brand">
+            <a href="index.html" class="nav__logo">Espaço Revestir</a>
+        </div>
+
+        <div class="nav__menu">
+            <ul class="nav__list" id="nav-menu">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link">HOME</a>
+                </li>
+                <li class="nav__item">
+                    <a href="quem-somos.html" class="nav__link active-link">QUEM SOMOS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="marcas.html" class="nav__link">MARCAS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="produtos.html" class="nav__link">PRODUTOS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="projetos.html" class="nav__link">PROJETOS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="noticias.html" class="nav__link">NOTÍCIAS</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contato.html" class="nav__link">CONTATO</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Quem Somos</h1>
+        <p>Transformando ambientes com acabamentos de alto padrão há mais de uma década</p>
+        <a href="#nossa-historia" class="cta-button">Conheça Nossa História</a>
+    </div>
+</section>
+
+<!-- Nossa História -->
+<section class="content-section" id="nossa-historia">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Nossa História</h2>
+            <div class="accent-line"></div>
+            <p class="section-subtitle">Uma jornada de excelência e inovação no segmento de acabamentos</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Experiência e Tradição</h3>
+                <p>Fundada em 2010, a Espaço Revestir nasceu da paixão por transformar ambientes através de acabamentos de alta qualidade. Nossa trajetória começou como uma pequena empresa familiar e hoje somos referência no mercado de revestimentos em Mogi das Cruzes.</p>
+                <p>Com mais de uma década de experiência, construímos nossa reputação baseada na confiança, qualidade e atendimento personalizado. Cada projeto é único e merece atenção especial para superar as expectativas dos nossos clientes.</p>
+            </div>
+            <div class="about-image">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect fill='%23f0f0f0' width='600' height='400'/><text x='300' y='200' text-anchor='middle' dominant-baseline='central' font-family='Arial' font-size='20' fill='%23999'>Showroom Interior</text></svg>" alt="Nosso Showroom">
+            </div>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect fill='%23f0f0f0' width='600' height='400'/><text x='300' y='200' text-anchor='middle' dominant-baseline='central' font-family='Arial' font-size='20' fill='%23999'>Premium Materials</text></svg>" alt="Materiais Premium">
+            </div>
+            <div class="about-text">
+                <h3>Curadoria Exclusiva</h3>
+                <p>Trabalhamos com as principais marcas do mercado, oferecendo uma curadoria exclusiva de produtos que aliam design, tecnologia e durabilidade. Nossa seleção criteriosa garante que cada cliente encontre exatamente o que precisa para seu projeto.</p>
+                <p>Nosso compromisso vai além da venda: oferecemos consultoria especializada, acompanhamento técnico e um ambiente pensado para inspirar nossos clientes em suas escolhas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Estatísticas -->
+<section class="content-section stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">14+</span>
+                <span class="stat-label">Anos de Experiência</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2000+</span>
+                <span class="stat-label">Projetos Realizados</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Marcas Parceiras</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Clientes Satisfeitos</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nossos Valores -->
+<section class="content-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Nossos Valores</h2>
+            <div class="accent-line"></div>
+            <p class="section-subtitle">Os pilares que sustentam nossa excelência no atendimento</p>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">✨</div>
+                <h4>Qualidade Premium</h4>
+                <p>Trabalhamos apenas com produtos de alta qualidade, garantindo durabilidade e beleza em cada projeto realizado.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h4>Atendimento Personalizado</h4>
+                <p>Cada cliente é único. Oferecemos consultoria especializada para encontrar as melhores soluções para seu projeto.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🚀</div>
+                <h4>Inovação Constante</h4>
+                <p>Sempre em busca das últimas tendências e tecnologias para oferecer o que há de mais moderno no mercado.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h4>Relacionamento Duradouro</h4>
+                <p>Construímos parcerias sólidas com nossos clientes, baseadas na confiança e satisfação mútua.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">⚡</div>
+                <h4>Agilidade na Entrega</h4>
+                <p>Processos otimizados e logística eficiente para garantir entregas dentro do prazo estabelecido.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h4>Expertise Técnica</h4>
+                <p>Nossa equipe possui conhecimento técnico profundo para orientar na melhor escolha de produtos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nossa Equipe -->
+<section class="content-section team-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Nossa Equipe</h2>
+            <div class="accent-line"></div>
+            <p class="section-subtitle">Profissionais especializados e apaixonados pelo que fazem</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image">👨‍💼</div>
+                <div class="team-info">
+                    <h4>Carlos Revestir</h4>
+                    <div class="role">Diretor Geral</div>
+                    <p>Fundador da empresa com mais de 15 anos de experiência no setor. Especialista em gestão de projetos e relacionamento com clientes.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">👩‍🎨</div>
+                <div class="team-info">
+                    <h4>Marina Design</h4>
+                    <div class="role">Consultora de Design</div>
+                    <p>Arquiteta especializada em design de interiores, responsável pela curadoria de produtos e consultoria em projetos residenciais.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">👨‍🔧</div>
+                <div class="team-info">
+                    <h4>Roberto Técnico</h4>
+                    <div class="role">Especialista Técnico</div>
+                    <p>Engenheiro com vasta experiência em especificação técnica de revestimentos e acompanhamento de obras.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>ESPAÇO<br>REVESTIR</h3>
+            </div>
+
+            <div class="footer-navigation">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="quem-somos.html">Quem Somos</a>
+                    <a href="marcas.html">Marcas</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="projetos.html">Projetos</a>
+                    <a href="noticias.html">Notícias</a>
+                    <a href="contato.html">Contato</a>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <div class="footer-contact-info">
+                    <p>(11) 4728-0000</p>
+                    <p>contato@espacorevestir.com.br</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 Espaço Revestir. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<div class="whatsapp-float">
+    <a href="https://wa.me/5511947280000" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+<script>
+    // Mobile Menu Toggle - Adaptado para o HTML fornecido
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav__link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Fade in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all content sections
+    document.querySelectorAll('.content-section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Counter animation for stats
+    function animateCounter(element, target) {
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        const isPercentage = element.textContent.includes('%');
+        const hasPlus = element.textContent.includes('+');
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+
+            if (hasPlus) {
+                element.textContent = Math.floor(current) + '+';
+            } else if (isPercentage) {
+                element.textContent = Math.floor(current) + '%';
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, 16);
+    }
+
+    // Animate stats when they come into view
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach(stat => {
+                    const originalText = stat.textContent;
+                    const target = parseInt(originalText.replace(/\D/g, ''));
+                    if (target > 0) {
+                        animateCounter(stat, target);
+                    }
+                });
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
+
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
+
+    // Header background and scroll effects
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        const scrollY = window.scrollY;
+
+        if (scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Parallax effect for hero section
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        const heroContent = document.querySelector('.hero-content');
+
+        if (hero && heroContent && scrolled < hero.offsetHeight) {
+            heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+            heroContent.style.opacity = 1 - (scrolled / hero.offsetHeight);
+        }
+    });
+
+    // Lazy loading for images
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+
+    // Hover effects for cards
+    document.querySelectorAll('.value-card, .team-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Loading animation for page
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+
+        // Animate hero content
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            heroContent.style.opacity = '1';
+            heroContent.style.transform = 'translateY(0)';
+        }
+    });
+
+    // Smooth scroll to top functionality
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    // Show/hide scroll to top button
+    let scrollToTopBtn = null;
+
+    function createScrollToTopButton() {
+        scrollToTopBtn = document.createElement('button');
+        scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        scrollToTopBtn.className = 'scroll-to-top';
+        scrollToTopBtn.style.cssText = `
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #ff9500, #ff7700);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 5px 20px rgba(255, 149, 0, 0.3);
+    `;
+
+        scrollToTopBtn.addEventListener('click', scrollToTop);
+        document.body.appendChild(scrollToTopBtn);
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!scrollToTopBtn) {
+            createScrollToTopButton();
+        }
+
+        if (window.scrollY > 300) {
+            scrollToTopBtn.style.opacity = '1';
+            scrollToTopBtn.style.transform = 'scale(1)';
+        } else {
+            scrollToTopBtn.style.opacity = '0';
+            scrollToTopBtn.style.transform = 'scale(0.8)';
+        }
+    });
+
+    // Form validation and interactions (if forms are added later)
+    function validateForm(form) {
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+        let isValid = true;
+
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                input.classList.add('error');
+                isValid = false;
+            } else {
+                input.classList.remove('error');
+            }
+        });
+
+        return isValid;
+    }
+
+    // WhatsApp button animation
+    const whatsappBtn = document.querySelector('.whatsapp-float a');
+    if (whatsappBtn) {
+        setInterval(() => {
+            whatsappBtn.style.animation = 'pulse 2s infinite';
+        }, 5000);
+    }
+
+    // Add pulse animation to CSS dynamically
+    const style = document.createElement('style');
+    style.textContent = `
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .scroll-to-top:hover {
+        transform: scale(1.1) !important;
+        box-shadow: 0 8px 30px rgba(255, 149, 0, 0.4) !important;
+    }
+
+    .loaded .hero-content {
+        transition: all 1s ease;
+    }
+
+    img.lazy {
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .nav__list.active {
+        left: 0 !important;
+    }
+
+    .error {
+        border: 2px solid #ff6b6b !important;
+        background-color: rgba(255, 107, 107, 0.1) !important;
+    }
+`;
+    document.head.appendChild(style);
+
+    // Keyboard navigation support
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            navMenu.classList.remove('active');
+        }
+    });
+
+    // Focus management for mobile menu
+    navToggle.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+            // Focus first menu item when menu opens
+            setTimeout(() => {
+                const firstLink = navMenu.querySelector('.nav__link');
+                if (firstLink) firstLink.focus();
+            }, 100);
+        }
+    });
+
+    // Performance optimization: Throttle scroll events
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+
+    // Apply throttling to scroll events
+    const throttledScrollHandler = throttle(() => {
+        const header = document.querySelector('.header');
+        const scrollY = window.scrollY;
+
+        if (scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        // Parallax effect
+        const heroContent = document.querySelector('.hero-content');
+        const hero = document.querySelector('.hero');
+
+        if (hero && heroContent && scrollY < hero.offsetHeight) {
+            heroContent.style.transform = `translateY(${scrollY * 0.5}px)`;
+        }
+    }, 16);
+
+    window.addEventListener('scroll', throttledScrollHandler);
+
+    // Console log for debugging
+    console.log('Espaço Revestir - JavaScript loaded successfully!');
+
+    // Initialize everything when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOM fully loaded');
+
+        // Add any initialization code here
+        const allSections = document.querySelectorAll('.content-section');
+        console.log(`Found ${allSections.length} content sections for animation`);
+
+        // Preload critical images
+        const criticalImages = document.querySelectorAll('.hero img, .about-image img');
+        criticalImages.forEach(img => {
+            const imageUrl = img.src;
+            const preloadImg = new Image();
+            preloadImg.src = imageUrl;
+        });
+    });
+
+</script>
+</body>
+</html>
